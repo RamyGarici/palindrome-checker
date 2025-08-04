@@ -1,10 +1,15 @@
-const result = document.getElementsByClassName("result")[0];
+const result = document.getElementById("result");
 
 function check(){
     const word = document.getElementById("text-input").value
-    const cleanedWord = word.replace(/[_\s]/g, "");
-const reverse = word.split("").reverse().join("")
-
+    if (word ==""){
+        alert("Please input a value")
+        return;
+    }
+     const cleanedWord = word.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+    console.log(cleanedWord)
+const reverse = cleanedWord.split("").reverse().join("")
+    console.log(reverse)
 if (cleanedWord ===  reverse){
     result.textContent = `${word} is a palindrome.`
 }
